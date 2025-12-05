@@ -1,0 +1,12 @@
+{
+    "client": {
+        "full_name": "API Test User",
+        "email": "apitest@example.com",
+        "phone": "+34 600 111 222"
+    },
+    "procedure": {
+        "visa_type": "API Test Visa",
+        "status": "RECEPCION",
+        "deadline": "2025-12-31"
+    }
+}
