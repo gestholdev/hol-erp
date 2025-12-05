@@ -91,6 +91,13 @@ DATABASES = {
         'PASSWORD': os.getenv('DB_PASSWORD', ''),
         'HOST': os.getenv('DB_HOST', ''),
         'PORT': os.getenv('DB_PORT', ''),
+        # Parámetros adicionales para PostgreSQL
+        'ATOMIC_REQUESTS': True,  # Envuelve cada request en una transacción
+        'CONN_MAX_AGE': int(os.getenv('DB_CONN_MAX_AGE', '0')),  # Pooling de conexiones (segundos)
+        'OPTIONS': {
+            'connect_timeout': 10,  # Timeout de conexión en segundos
+            'options': '-c statement_timeout=30000'  # Timeout de queries en ms (30 segundos)
+        } if os.getenv('DB_ENGINE') == 'django.db.backends.postgresql' else {},
     }
 }
 
